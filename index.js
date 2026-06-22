@@ -47,10 +47,9 @@ function initCopyButtons() {
       const copedText = targetButton.dataset.copiedText ?? "";
       try {
         copyTextToClipboard(valueToCopy);
-        targetButton.textContent = copedText.length === 0 ?
-          targetButton.textContent = "Скопировано" :
 
-          targetButton.textContent = copedText;
+        targetButton.textContent = copedText.length === 0 ?
+          "Скопировано" : copedText;
 
         setTimeout(() => {
           targetButton.textContent = defaultText;
