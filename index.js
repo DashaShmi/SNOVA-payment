@@ -44,9 +44,14 @@ function initCopyButtons() {
       const targetButton = e.target;
       const defaultText = targetButton.textContent;
       const valueToCopy = targetButton.dataset.value;
+      const copedText = targetButton.dataset.copiedText ?? "";
       try {
         copyTextToClipboard(valueToCopy);
-        targetButton.textContent = "Copied";
+        targetButton.textContent = copedText.length === 0 ?
+          targetButton.textContent = "Скопировано" :
+
+          targetButton.textContent = copedText;
+
         setTimeout(() => {
           targetButton.textContent = defaultText;
         }, 2000);
